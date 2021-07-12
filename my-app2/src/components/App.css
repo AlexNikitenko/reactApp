@@ -1,6 +1,10 @@
-btn {
+.App {
+  display: flex;
+}
+
+button {
   border: 1px solid black;
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   box-sizing: border-box;
 }

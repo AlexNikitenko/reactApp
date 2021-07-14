@@ -5,9 +5,10 @@ function InputField({ getData }) {
 
  
   return (
-    <div className="input">
+    <div className="inputs">
 
-      <input type="text" onChange={ getData }></input>
+      <input type="text" onChange={(ev) => getData.input1 = ev.target.value }></input>
+      <input type="text" onChange={(ev) => getData.input2 = ev.target.value }></input>
 
     </div>
     

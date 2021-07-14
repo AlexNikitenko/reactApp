@@ -7,21 +7,30 @@ import Result from './Result';
 
 function App() {
 
-  const [data1, setData1] = useState(null);
-  const [data2, setData2] = useState(null);
   const [result, setResult] = useState(null);
+
+  const inputsObj = {
+    input1: null,
+    input2: null
+  };
+
+  const mathOperations = {
+    '+': (x, y) => Number(x) + Number(y),
+    '-': (x, y) => Number(x) - Number(y),
+    '*': (x, y) => Number(x) * Number(y),
+    '/': (x, y) => Number(x) / Number(y)
+  }
 
   return (
     <div className="App">
       <div className="buttons">
-        <Button operation={'+'} input1={data1} input2={data2} getResult={(operationResult) => setResult(operationResult)}/>
-        <Button operation={'-'} input1={data1} input2={data2} getResult={(operationResult) => setResult(operationResult)}/>
-        <Button operation={'*'} input1={data1} input2={data2} getResult={(operationResult) => setResult(operationResult)}/>
-        <Button operation={'/'} input1={data1} input2={data2} getResult={(operationResult) => setResult(operationResult)}/>
+        <Button operation={'+'} operationResult={(operationType) => setResult(mathOperations[operationType](inputsObj.input1, inputsObj.input2))}/>
+        <Button operation={'-'} operationResult={(operationType) => setResult(mathOperations[operationType](inputsObj.input1, inputsObj.input2))}/>
+        <Button operation={'*'} operationResult={(operationType) => setResult(mathOperations[operationType](inputsObj.input1, inputsObj.input2))}/>
+        <Button operation={'/'} operationResult={(operationType) => setResult(mathOperations[operationType](inputsObj.input1, inputsObj.input2))}/>
       </div>
-      <div className="inputs">
-        <InputField getData={(ev) => setData1(ev.target.value)}/>
-        <InputField getData={(ev) => setData2(ev.target.value)}/>
+      <div>
+        <InputField getData={inputsObj}/>
       </div>
       <div className="result">
         <Result finalResult={result}/>

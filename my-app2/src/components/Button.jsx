@@ -1,11 +1,11 @@
 import React from 'react';
 import './Button.css'
 
-function Button({ operation, operationResult }) {
+function Button({ operation, oper }) {
 
   return (
     <div className="button">
-      <button onClick={ () => operationResult(operation) }>{ operation }
+      <button onClick={ () => oper() }>{ operation }
       </button>
 
     </div>

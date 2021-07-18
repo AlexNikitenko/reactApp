@@ -21,17 +21,17 @@ function App() {
     '/': (x, y) => Number(x) / Number(y)
   }
 
-  const getOperation = (operationType) => {
+  const execute = (operationType) => {
     setResult(mathOperations[operationType](inputsObj.input1, inputsObj.input2));
   }
 
   return (
     <div className="App">
       <div className="buttons">
-        <Button operation={'+'} operationResult={(operationType) => getOperation(operationType)}/>
-        <Button operation={'-'} operationResult={(operationType) => getOperation(operationType)}/>
-        <Button operation={'*'} operationResult={(operationType) => getOperation(operationType)}/>
-        <Button operation={'/'} operationResult={(operationType) => getOperation(operationType)}/>
+        <Button operation={'+'} oper={() => execute('+')}/>
+        <Button operation={'-'} oper={() => execute('-')}/>
+        <Button operation={'*'} oper={() => execute('*')}/>
+        <Button operation={'/'} oper={() => execute('/')}/>
       </div>
       <div>
         <InputField getData={inputsObj}/>

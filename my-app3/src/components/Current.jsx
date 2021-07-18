@@ -3,7 +3,10 @@ import './Current.css';
 function Current({ curr }) {
   return (
     <div className="Current">
-      <strong>Current Color:</strong> {curr}
+      <div className="colorName">
+        <strong>Current Color:</strong> {curr}
+      </div>
+      <div className="icon" style={{ backgroundColor: curr }}></div>
     </div>
   );
 }

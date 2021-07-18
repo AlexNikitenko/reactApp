@@ -1,0 +1,11 @@
+.Current {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.icon {
+  width: 50px;
+  height: 25px;
+  border: 1px solid black;
+}

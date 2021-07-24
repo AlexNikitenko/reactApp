@@ -16,7 +16,6 @@ function Dogs() {
   return (
     <div className="Dogs">
        <img src={showDogsImg} alt=""></img>
-       
     </div>
   );
 }

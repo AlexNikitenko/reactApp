@@ -1,26 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
-import Dogs from './Dogs';
-
+import axios from 'axios';
 
 function App() {
-  const [ShowDogs, setShowDogs] = useState(false);
 
-  const showT = (bool) => {
-    if (bool) {
-      return <Dogs />;
-    };
-    
-    return;
-  };
+  const [showDogsImg, setshowDogsImg] = useState(null);
+
+  useEffect(() => {
+    axios.get('https://dog.ceo/api/breeds/image/random').then(r => {
+      console.log(r);
+      setshowDogsImg(r.data.message);
+    })
+  }, [])
+
+  const getNewDog = () => {
+    axios.get('https://dog.ceo/api/breeds/image/random').then(r => {
+      console.log(r);
+      setshowDogsImg(r.data.message);
+    })
+  }
 
   return (
     <div className="App">
-      <button type="button" onClick={() => setShowDogs(!ShowDogs)}>Cick on me
-
-      </button>
-      
-        { showT(ShowDogs) }
+      <button type="button" onClick={() => getNewDog()}>CLICK ON ME</button>
+        <img src={showDogsImg} alt=""></img>
     </div>
   );
 }
